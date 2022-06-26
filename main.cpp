@@ -318,7 +318,7 @@ bool Check_Win(char Grid[][8])
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++)
-			if (Grid[i][j]==254)
+			if (Grid[i][j]==-2)
 			{
 				return false;
 			}
@@ -339,7 +339,7 @@ int main()
 	{
 		Player_Choice(Grid, Player);
 
-		Check_Win(Grid);
+		win = Check_Win(Grid);
 		
 		Display_Grid(Grid);
 
@@ -358,16 +358,16 @@ int main()
 	}
 	if (Player>32)
 	{
-		std::cout << "Player 1 WON :" << Player << "-" << 64 - Player;
+		std::cout << "Player 1 WON : " << (int)Player << "  -  " << (int)(64 - Player);
 	}
 	else
 	{
 		if (Player < 32)
 		{
-			std::cout << "Player 2 WON :" << Player-64 << "-" << Player;
+			std::cout << "Player 2 WON : " << (int)(64 - Player) << "  -  " << (int)Player;
 		}
 		else
-			std::cout << "Tie :" << Player << "-" << 64 - Player;
+			std::cout << "Tie : " << (int)Player << "  -  " << (int)(64 - Player);
 	}
 	return 0;
 }
